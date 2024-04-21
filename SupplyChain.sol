@@ -2,40 +2,62 @@
 pragma solidity ^0.8.0;
 
 contract SupplyChain {
+    uint public nextItemId = 0;
+    uint public nextStepId = 0;
+
     struct Item {
         uint id;
         string name;
         string description;
-        address currentOwner;
+        uint[] history;
         bool isShipped;
     }
 
-    Item[] public items;
-    uint public nextItemId;
+    struct Step {
+        uint id;
+        uint itemId;
+        address handler;
+        string location;
+        string description;
+        uint timestamp;
+    }
 
-    event ItemAdded(uint itemId, string name, address indexed owner);
-    event ItemShipped(uint itemId, address indexed shippedBy);
+    mapping(uint => Item) public items;
+    mapping(uint => Step) public steps;
 
-    function addItem(string memory _name, string memory _description) public {
-        items.push(Item({
-            id: nextItemId,
-            name: _name,
-            description: _description,
-            currentOwner: msg.sender,
-            isShipped: false
-        }));
-        emit ItemAdded(nextItemId, _name, msg.sender);
+    event ItemCreated(uint itemId);
+    event StepAdded(uint itemId, uint stepId, address handler);
+
+    function createItem(string memory _name, string memory _description) public {
+        uint[] memory history;
+        items[nextItemId] = Item(nextItemId, _name, _description, history, false);
+        emit ItemCreated(nextItemId);
         nextItemId++;
     }
 
-    function shipItem(uint _itemId) public {
-        Item storage item = items[_itemId];
-        require(msg.sender == item.currentOwner, "Only the item owner can ship it.");
-        require(!item.isShipped, "Item is already shipped.");
+    function addItemStep(uint _itemId, string memory _location, string memory _description) public {
+        require(_itemId < nextItemId, "Item does not exist.");
+        require(!items[_itemId].isShipped, "Item has already been shipped.");
 
-        item.isShipped = true;
-        emit ItemShipped(_itemId, msg.sender);
+        steps[nextStepId] = Step(nextStepId, _itemId, msg.sender, _location, _description, block.timestamp);
+        items[_itemId].history.push(nextStepId);
+        emit StepAdded(_itemId, nextStepId, msg.sender);
+        nextStepId++;
     }
 
-    // Add more functions here as needed
+    function shipItem(uint _itemId) public {
+        require(_itemId < nextItemId, "Item does not exist.");
+        require(!items[_itemId].isShipped, "Item has already been shipped.");
+        
+        items[_itemId].isShipped = true;
+    }
+
+    function getItemHistory(uint _itemId) public view returns (Step[] memory) {
+        Item storage item = items[_itemId];
+        Step[] memory history = new Step[](item.history.length);
+        for (uint i = 0; i < item.history.length; i++) {
+            history[i] = steps[item.history[i]];
+        }
+        return history;
+    }
 }
