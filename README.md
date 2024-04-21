@@ -53,4 +53,4 @@ This project is intended as a starting point for learning and development. Contr
 This project is open-sourced under the MIT license.
 
 ## Contact
-For any further queries or to get involved, please contact [Your Name](mailto:your.email@example.com).
+For any further queries or to get involved, please contact [Mohammadreza Namjoo](mailto:mohammadrezanamjoo.cs@gmail.com).
