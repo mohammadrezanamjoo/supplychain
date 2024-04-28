@@ -54,7 +54,7 @@ contract SupplyChain {
 
     function addItemStep(uint _itemId, string memory _location, string memory _description) public {
         require(_itemId < nextItemId, "Item does not exist.");
-        require(!items[_itemId].isShipped, "Item has already been shipped.");
+        require(!items[_itemId].isShipped, "Item has already been shipped. ");
 
         steps[nextStepId] = Step(nextStepId, _itemId, msg.sender, _location, _description, block.timestamp, 0);
         items[_itemId].history.push(nextStepId);
