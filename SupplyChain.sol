@@ -42,7 +42,7 @@ contract SupplyChain {
     }
 
     constructor() {
-        owner = msg.sender;
+        owner = msg.sender ;
     }
 
     function createItem(string memory _name, string memory _description, uint _quantity, uint _expirationDate) public {
