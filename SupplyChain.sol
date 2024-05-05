@@ -48,7 +48,7 @@ contract SupplyChain {
     function createItem(string memory _name, string memory _description, uint _quantity, uint _expirationDate) public {
         uint[] memory history;
         items[nextItemId] = Item(nextItemId, _name, _description, history, false, msg.sender, _quantity, _expirationDate);
-        emit ItemCreated(nextItemId, msg.sender);
+        emit ItemCreated(nextItemId, msg.sender) ;
         nextItemId++;
     }
 
