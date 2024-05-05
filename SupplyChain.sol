@@ -92,6 +92,6 @@ contract SupplyChain {
     }
 
     function transferOwnership(address _newOwner) public onlyOwner {
-        owner = _newOwner;
+        owner  = _newOwner;
     }
 }
