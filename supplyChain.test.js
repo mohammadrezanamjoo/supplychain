@@ -28,7 +28,7 @@ contract("SupplyChain", (accounts) => {
     it("should allow marking an item as shipped", async () => {
         await contract.createItem("Machine", "A complex machine");
         await contract.shipItem(3);
-        const item = await contract.items(2);
+        const item = await contract.items(3);
         assert.equal(item.isShipped, true, "Item should be marked as shipped");
     });
 });
