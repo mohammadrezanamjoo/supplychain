@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract SupplyChain {
-    // Enum representing the various states of a product in the 
+    // Enum representing the various 
     enum State { Created, Manufactured, ForSale, Sold, Shipped, Received }
 
     // Structure representing a Product
