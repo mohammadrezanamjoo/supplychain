@@ -62,7 +62,7 @@ contract SupplyChain {
     }
 
     function shipItem(uint _itemId) public {
-        require(_itemId < nextItemId, "Item does not exist.");
+        require(_itemId < nextItemId,  "Item does not exist.");
         require(!items[_itemId].isShipped, "Item has already been shipped.");
         
         items[_itemId].isShipped = true;
