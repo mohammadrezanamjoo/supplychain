@@ -14,7 +14,6 @@ contract SupplyChain {
 
     uint public productCounter;
 
-    // Events for each state change
     event ProductCreated(uint id, string name, uint price, address owner);
     event ProductManufactured(uint id);
     event ProductForSale(uint id, uint price);
