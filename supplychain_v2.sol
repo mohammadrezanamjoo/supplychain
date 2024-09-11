@@ -12,7 +12,6 @@ contract SupplyChain {
     }
     mapping(uint => Product) public products;
 
-    // Counter for generating unique product IDs
     uint public productCounter;
 
     // Events for each state change
