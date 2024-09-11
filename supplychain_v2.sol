@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 contract SupplyChain {
     enum State { Created, Manufactured, ForSale, Sold, Shipped, Received }
 
-    // Structure representing a Product
     struct Product {
         uint id;
         string name;
