@@ -10,8 +10,6 @@ contract SupplyChain {
         State state;
         address payable owner;
     }
-
-    // Mapping from product ID to Product
     mapping(uint => Product) public products;
 
     // Counter for generating unique product IDs
