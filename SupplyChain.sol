@@ -73,6 +73,7 @@ contract SupplyChain {
         Item storage item = items[_itemId];
         Step[] memory history = new Step[](item.history.length);
         for (uint i = 0; i < item.history.length; i++) {
+
             history[i] = steps[item.history[i]];
         }
         return history;
