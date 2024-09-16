@@ -80,6 +80,7 @@ contract SupplyChain {
     }
 
     function makePayment(uint _stepId) public payable {
+
         require(_stepId < nextStepId,  "Step does not exist.");
         require(!steps[_stepId].handler == msg.sender, "You cannot pay yourself.");
         
