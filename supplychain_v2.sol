@@ -69,7 +69,6 @@ contract SupplyChain {
         emit ProductShipped(_id);
     }
 
-    // Function to receive a product
     function receiveProduct(uint _id) public onlyOwner(_id) inState(_id, State.Shipped) {
         products[_id].state = State.Received;
         emit ProductReceived(_id);
