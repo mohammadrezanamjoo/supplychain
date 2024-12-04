@@ -21,6 +21,7 @@ contract SupplyChain {
     }
 
     struct Step {
+
         uint id;
         uint itemId;
         address handler;
