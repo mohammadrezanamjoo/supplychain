@@ -9,6 +9,7 @@ contract SupplyChain {
     uint public nextStepId = 0;
 
     struct Item {
+
         uint id;
         string name;
         string description;
