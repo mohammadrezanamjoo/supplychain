@@ -4,6 +4,7 @@ contract SupplyChain {
     address public owner;
 
     uint public nextItemId = 0;
+
     uint public nextStepId = 0;
 
     struct Item {
