@@ -1,6 +1,7 @@
 pragma solidity ^0.8.0;
 
 contract SupplyChain {
+
     enum State { Created, Manufactured, ForSale, Sold, Shipped, Received }
 
     struct Product {
