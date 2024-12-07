@@ -56,6 +56,7 @@ contract SupplyChain {
 
     // Function to buy a product
     function buyProduct(uint _id) public payable inState(_id, State.ForSale) {
+
         Product storage product = products[_id];
         require(msg.value == product.price, "Incorrect price");
 
