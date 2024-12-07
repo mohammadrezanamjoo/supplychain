@@ -68,6 +68,7 @@ contract SupplyChain {
     }
 
     function shipProduct(uint _id) public onlyOwner(_id) inState(_id, State.Sold) {
+
         products[_id].state = State.Shipped;
         emit ProductShipped(_id);
     }
