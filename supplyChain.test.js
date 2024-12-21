@@ -12,7 +12,7 @@ contract("SupplyChain", (accounts) => {
     });
 
     it("should create an item correctly", async () => {
-        await contract.createItem( " Widget", "A standard widget ");
+        await contract.createItem( " Widget", "A standard widget " );
         const item = await contract.items(0);
         assert.equal(item.name, "Widget", " Name should be 'Widget'");
     });
