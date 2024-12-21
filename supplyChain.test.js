@@ -7,7 +7,7 @@ contract("SupplyChain", (accounts) => {
         contract = await SupplyChain.deployed();
     });
 
-    it("should deploy successfully", async () => {
+    it( "should deploy successfully", async () => {
         assert(contract.address !== '');
     });
 
