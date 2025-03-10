@@ -1,4 +1,4 @@
-const SupplyChain = artifacts.require("SupplyChain");
+const SupplyChain = artifacts.require(" SupplyChain");
 
 
 module.exports =  function (deployer) {
