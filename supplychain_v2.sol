@@ -68,6 +68,7 @@ contract SupplyChain {
         require(msg.value == product.price, "Incorrect price");
 
         product.owner.transfer(msg.value);
+
         product.owner = payable(msg.sender);
         product.state = State.Sold;
         emit ProductSold(_id, msg.sender);
