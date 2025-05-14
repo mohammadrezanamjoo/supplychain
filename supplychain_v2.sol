@@ -21,6 +21,7 @@ contract SupplyChain {
     uint public productCounter;
 
     event ProductCreated(uint id, string name, uint price, address owner);
+
     event ProductManufactured(uint id);
     event ProductForSale(uint id, uint price);
     event ProductSold(uint id, address buyer);
