@@ -7,6 +7,7 @@ contract SupplyChain {
     struct Product {
 
         uint id;
+
         string name;
         uint price;
         State state;
