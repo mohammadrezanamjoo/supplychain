@@ -13,6 +13,7 @@ contract SupplyChain {
         uint price;
 
         State state;
+
         address payable owner;
     }
     mapping(uint => Product) public products;
