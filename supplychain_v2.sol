@@ -47,7 +47,7 @@ contract SupplyChain {
         emit ProductCreated(productCounter, _name, _price, msg.sender);
     }
 
-    // Function to manufacture a product
+    // Function to manufacture a 
 
     function manufactureProduct(uint _id) public onlyOwner(_id) inState(_id, State.Created) {
         products[_id].state = State.Manufactured;
