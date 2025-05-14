@@ -11,6 +11,7 @@ contract SupplyChain {
         string name;
 
         uint price;
+
         State state;
         address payable owner;
     }
