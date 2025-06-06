@@ -26,6 +26,7 @@ contract("SupplyChain", (accounts) => {
         await contract.addItemStep(1, "Warehouse A", "Received at location");
         
         await contract.addItemStep(1, "Warehouse B", "Dispatched to next location");
+        
         const itemHistory = await contract.getItemHistory(1);
         assert.equal(itemHistory.length, 2, "There should be two steps recorded in the item's history");
     });
