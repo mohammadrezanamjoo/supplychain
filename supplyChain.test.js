@@ -1,6 +1,7 @@
 const SupplyChain = artifacts.require("SupplyChain");
 
 contract("SupplyChain", (accounts) => {
+    
     let contract;
 
     before(async () => {
