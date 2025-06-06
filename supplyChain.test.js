@@ -20,6 +20,7 @@ contract("SupplyChain", (accounts) => {
     });
 
     it("should add steps to an item's history", async () => {
+        
         await contract.createItem(" Gadget", "A special gadget");
         
         await contract.addItemStep(1, "Warehouse A", "Received at location");
